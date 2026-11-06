@@ -5,12 +5,12 @@ from pydantic import BaseModel
 app = FastAPI()
 
 # dado esperado na rota /saudacao
-class Pedido(BaseModel):
-    nome: str
+class Entrada(BaseModel):
+    fonte: str
 
-@app.post("/saudacao")
-def saudacao(pedido: Pedido):
-    msg = f"Olá, {pedido.nome}!"
+@app.post("/predict")
+def saudacao(entrada: Entrada):
+    msg = f"Olá, {entrada.fonte}!"
     return {"mensagem": msg}
 
 # dado esperado na rota /dobro
